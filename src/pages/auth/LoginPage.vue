@@ -9,7 +9,7 @@
               <!--              <div class="img"  :style="{ backgroundImage: `url(custom/design/img/Capture.JPG)` }"></div>-->
               <div  class="img" :style="{'background-image': 'url(/custom/design/img/Capture.JPG)'}"></div>
               <div class="login-wrap p-4 p-md-5">
-                <form style="font-family: Arial, Baskerville, monospace; padding: 20%" action="dashboard_agent.html">
+                <form style="font-family: Arial, Baskerville, monospace; padding: 20%" action="">
                   <h2 style="text-align: center; font-size:x-large ; color:mediumpurple">ERU Login</h2>
 
                   <div class="form-outline mb-1">
@@ -30,8 +30,6 @@
         </div>
       </div>
     </section>
-
-
   </div>
 </template>
 
