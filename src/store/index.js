@@ -1,14 +1,5 @@
 import {createStore} from "vuex";
 import axios from 'axios';
-const header = {
-    headers:{
-        'Access-Control-Allow-Origin' : "*",
-        'Access-Control-Allow-Methods' : "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        'Access-Control-Allow-Headers' : "Origin, X-Requested-With, Content-Type, Accept, X-Auth-Token, access-control-allow-origin, Authorization",
-        'Access-Control-Allow-Credentials' : "true",
-        'Content-Type': 'application/x-www-form-urlencoded'
-    }
-}
 const authModule = {
     state: () => ({
         user: []
@@ -21,10 +12,18 @@ const authModule = {
     },
     actions: {
         async login(context, credentials) {
-            return axios.post(process.env.VUE_APP_BASE_URL + "/api/v1/auth/jwt", {
+            /**
+             * Author: Shawon
+             * Comment: 
+             * Bux Fixing Logs:::
+             * 1.Need to use backslash at the end for any Django Post Method
+             * 2.Dont pass header in the post method from client side
+             * 
+             */
+            return axios.post(process.env.VUE_APP_BASE_URL + "/api/v1/auth/jwt/", {
                 username: credentials.username,
                 password: credentials.password
-                } , header)
+                })
                 .then(res => {
                     context.commit('setUser', res.data);
                     window.localStorage.setItem("users", JSON.stringify(res.data));
