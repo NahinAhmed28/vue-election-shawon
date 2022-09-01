@@ -86,8 +86,9 @@ export default {
         username: this.username,
         password: this.password,
       });
-      if (response) {
-        if (response.is_staff == true) {
+      let output = JSON.parse(response);
+      if (output) {
+        if (output.is_staff == true) {
           this.$router.push({ name: "DashboardStaffPage" });
         } else {
           this.$router.push({ name: "DashboardAgentPage" });
