@@ -48,9 +48,9 @@
           </li>
           <li> <a href="#"><ion-icon name="ellipse-outline"></ion-icon>আসন</a>
           </li>
-          <li> <a href="#"><ion-icon name="ellipse-outline"></ion-icon>জেলা</a>
+          <li> <RouterLink to="/create-district"><ion-icon name="ellipse-outline"></ion-icon>জেলা</RouterLink>
           </li>
-          <li> <a href="#"><ion-icon name="ellipse-outline"></ion-icon>বিভাগ</a>
+          <li> <RouterLink to="/create-division"><ion-icon name="ellipse-outline"></ion-icon>বিভাগ</RouterLink>
           </li>
           <li><a href="#"><ion-icon name="ellipse-outline"></ion-icon>কেন্দ্র</a>
           </li>

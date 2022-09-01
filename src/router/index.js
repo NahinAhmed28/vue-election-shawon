@@ -6,6 +6,8 @@ import TablePage from "@/pages/TablePage";
 import LoginPage from "@/pages/auth/LoginPage";
 import DashboardStaffPage from "@/pages/DashboardStaff";
 import DashboardAgentPage from "@/pages/DashboardAgent";
+import CreateDivisionPage from "@/pages/CreateDivision";
+import CreateDistrictPage from "@/pages/CreateDistrict";
 
 const routes = [
     {
@@ -46,6 +48,14 @@ const routes = [
         path: '/dashboard-agent',
         name: 'DashboardAgentPage',
         component: DashboardAgentPage
+    },{
+        path: '/create-division',
+        name: 'CreateDivision',
+        component: CreateDivisionPage
+    },{
+        path: '/create-district',
+        name: 'CreateDistrict',
+        component: CreateDistrictPage
     }
 ];
 const router = createRouter({

@@ -1,20 +1,29 @@
-$(function() {
-	"use strict";
+$(function () {
+    "use strict";
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#example').DataTable();
-      } );
+    });
 
 
-      $(document).ready(function() {
-        var table = $('#example2').DataTable( {
+    $(document).ready(function () {
+        var table = $('#example2').DataTable({
             lengthChange: false,
-            buttons: [ 'copy', 'excel', 'pdf', 'print']
-        } );
-     
+            buttons: ['copy', 'excel', 'pdf', 'print']
+        });
+
         table.buttons().container()
-            .appendTo( '#example2_wrapper .col-md-6:eq(0)' );
-    } );
+            .appendTo('#example2_wrapper .col-md-6:eq(0)');
+    });
+    $(document).ready(function () {
+        var table = $('#division_list').DataTable({
+            lengthChange: false,
+            buttons: ['copy', 'excel', 'pdf', 'print']
+        });
+
+        table.buttons().container()
+            .appendTo('#division_list_wrapper .col-md-6:eq(0)');
+    });
 
 
 });
