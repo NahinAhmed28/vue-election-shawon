@@ -8,6 +8,8 @@ import DashboardStaffPage from "@/pages/DashboardStaff";
 import DashboardAgentPage from "@/pages/DashboardAgent";
 import CreateDivisionPage from "@/pages/CreateDivision";
 import CreateDistrictPage from "@/pages/CreateDistrict";
+import CreateConstituencyPage from "@/pages/CreateConstituency";
+import CreateCenterPage from "@/pages/CreateCenter";
 
 const routes = [
     {
@@ -56,6 +58,14 @@ const routes = [
         path: '/create-district',
         name: 'CreateDistrict',
         component: CreateDistrictPage
+    },{
+        path: '/create-center',
+        name: 'CreateCenter',
+        component: CreateConstituencyPage
+    },{
+        path: '/create-constituency',
+        name: 'CreateConstituency',
+        component: CreateCenterPage
     }
 ];
 const router = createRouter({
