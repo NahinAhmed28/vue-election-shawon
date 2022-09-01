@@ -61,11 +61,11 @@ const routes = [
     },{
         path: '/create-center',
         name: 'CreateCenter',
-        component: CreateConstituencyPage
+        component: CreateCenterPage
     },{
         path: '/create-constituency',
         name: 'CreateConstituency',
-        component: CreateCenterPage
+        component: CreateConstituencyPage
     }
 ];
 const router = createRouter({

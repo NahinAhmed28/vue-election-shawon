@@ -14,7 +14,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="border p-3 rounded">
-                    <h3 class="mb-0 text-uppercase">জেলা তৈরী করুন</h3>
+                    <h3 class="mb-0 text-uppercase">আসন তৈরী করুন</h3>
                     <hr />
                     <form class="row g-3" @submit.prevent="storeDivision">
                       <div class="col-12">
@@ -40,14 +40,36 @@
                       </div>
                       <div class="col-12">
                         <label class="form-label">জেলার নাম</label>
+                        <div class="input-group">
+                          <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
+                            </button> -->
+                          <select
+                              class="form-select single-select"
+                              id="district"
+                              v-model="form.district_name"
+                          >
+                            <option selected>বাছাই করুন</option>
+                            <option
+                                :value="district.id"
+                                v-for="district in districts"
+                                :key="district.id"
+                            >
+                              {{ district.district_name }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label">আসনের নাম</label>
                         <input
-                          type="text"
-                          class="form-control"
-                          id="district_name"
-                          placeholder="জেলার নাম"
-                          v-model="form.district_name"
+                            type="text"
+                            class="form-control"
+                            id="constituency_name"
+                            placeholder="আসনের নাম"
+                            v-model="form.constituency_name"
                         />
                       </div>
+
                       <div class="col-12">
                         <div class="d-grid">
                           <button type="submit" class="btn btn-primary">

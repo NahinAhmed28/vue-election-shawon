@@ -40,22 +40,54 @@
                       </div>
                       <div class="col-12">
                         <label class="form-label">জেলার নাম</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="district_name"
-                          placeholder="জেলার নাম"
-                          v-model="form.district_name"
-                        />
+                        <div class="input-group">
+                          <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
+                            </button> -->
+                          <select
+                              class="form-select single-select"
+                              id="district"
+                              v-model="form.district_name"
+                          >
+                            <option selected>বাছাই করুন</option>
+                            <option
+                                :value="district.id"
+                                v-for="district in districts"
+                                :key="district.id"
+                            >
+                              {{ district.district_name }}
+                            </option>
+                          </select>
+                        </div>
                       </div>
                       <div class="col-12">
                         <label class="form-label">আসনের নাম</label>
+                        <div class="input-group">
+                          <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
+                            </button> -->
+                          <select
+                              class="form-select single-select"
+                              id="constituency"
+                              v-model="form.constituency_name"
+                          >
+                            <option selected>বাছাই করুন</option>
+                            <option
+                                :value="constituency.id"
+                                v-for="constituency in constituencies"
+                                :key="constituencies.id"
+                            >
+                              {{ constituency.constituency_name }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label">কেন্দ্রের নাম</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="constituency_name"
-                            placeholder="জেলার নাম"
-                            v-model="form.constituency_name"
+                            id="center_name"
+                            placeholder="কেন্দ্রের নাম"
+                            v-model="form.center_name"
                         />
                       </div>
                       <div class="col-12">
@@ -74,13 +106,13 @@
         </div>
         <div style="padding-top: 2rem">
           <hr />
-          <h4>জেলার তালিকা</h4>
+          <h4>কেন্দ্রের তালিকা</h4>
 
           <div class="card">
             <div class="card-body">
               <div class="table-responsive">
                 <table
-                  id="division_list"
+                  id="center_list"
                   class="table table-striped table-bordered"
                 >
                   <thead>
@@ -180,8 +212,9 @@ export default {
     return {
       districts: [],
       divisions: [],
+      constituencies :[],
       form: {
-        district_name: null,
+        district: null,
         division: 0,
       },
       errors: {},
