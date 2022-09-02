@@ -16,7 +16,7 @@
                   <div class="border p-3 rounded">
                     <h3 class="mb-0 text-uppercase">জেলা তৈরী করুন</h3>
                     <hr />
-                    <form class="row g-3" @submit.prevent="storeDivision">
+                    <form class="row g-3" @submit.prevent="storeDistrict">
                       <div class="col-12">
                         <label class="form-label">বিভাগের নাম</label>
                         <div class="input-group">
@@ -111,9 +111,9 @@
                         </button>
                       </td>
                       <td>
-                        <div class="btn-group">
+                        <div class="btn-group dropstart">
                           <button
-                            class="btn btn-secondary btn-sm dropdown-toggle"
+                            class="btn btn-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
@@ -122,13 +122,25 @@
                           </button>
                           <ul class="dropdown-menu">
                             <li>
-                              <a class="dropdown-item" href="#">Publish</a>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('published', item.id)"
+                                >Publish</a
+                              >
                             </li>
                             <li>
-                              <a class="dropdown-item" href="#">Unpublish</a>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('unpublished', item.id)"
+                                >Unpublish</a
+                              >
                             </li>
                             <li>
-                              <a class="dropdown-item" href="#">Archive</a>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('archived', item.id)"
+                                >Archive</a
+                              >
                             </li>
                           </ul>
                         </div>
@@ -171,7 +183,7 @@ export default {
       divisions: [],
       form: {
         district_name: null,
-        division: 0,
+        division: null,
       },
       errors: {},
     };
@@ -185,31 +197,62 @@ export default {
     SidebarPart,
   },
   methods: {
+    async respond(status, id) {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      return axios
+        .patch(
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/district/" +
+            id +
+            "/",
+          { status: status }
+        )
+        .then((response) => {
+          if (response) {
+            this.allDistricts();
+            this.allDivisions();
+          }
+          return true;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
     async allDistricts() {
-      let user = JSON.parse(localStorage.getItem("users"));
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       await axios
         .get(
-          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/",
-          {
-            headers: {
-              token: user.token,
-            },
-          }
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/district/?lim=100"
         )
-        .then(({ data }) => (this.districts = data))
+        .then(({ data }) => (this.districts = data.results))
+        .catch();
+    },
+    async allDivisions() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      await axios
+        .get(
+          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/division/"
+        )
+        .then(({ data }) => (this.divisions = data.results))
         .catch();
     },
     async storeDistrict() {
-      //   let user = JSON.parse(localStorage.getItem("users"));
-
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       return axios
         .post(
           process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/",
           this.form
         )
-        .then(() => {
-          console.log("Created!");
-          //   this.$router.push({name:'CreateDivision'})
+        .then((response) => {
+          if (response) {
+            this.allDistricts();
+            this.allDivisions();
+          }
           return true;
         })
         .catch((error) => {
@@ -219,123 +262,8 @@ export default {
   },
 
   created() {
-    let response = {
-      count: 9,
-      next: null,
-      previous: null,
-      results: [
-        {
-          id: 1,
-          division: "ঢাকা",
-          district_name: "নরসিংদী",
-          status: "published",
-        },
-        {
-          id: 2,
-          division: "ঢাকা",
-          district_name: "গাজীপুর",
-          status: "published",
-        },
-        {
-          id: 3,
-          division: "ঢাকা",
-          district_name: "শরীয়তপুর",
-          status: "published",
-        },
-        {
-          id: 4,
-          division: "ঢাকা",
-          district_name: "নারায়ণগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 5,
-          division: "ঢাকা",
-          district_name: "টাঙ্গাইল",
-          status: "published",
-        },
-        {
-          id: 6,
-          division: "ঢাকা",
-          district_name: "কিশোরগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 7,
-          division: "ঢাকা",
-          district_name: "মানিকগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 8,
-          division: "ঢাকা",
-          district_name: "ঢাকা",
-          status: "published",
-        },
-        {
-          id: 9,
-          division: "ঢাকা",
-          district_name: "মুন্সিগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 10,
-          division: "ঢাকা",
-          district_name: "রাজবাড়ী",
-          status: "published",
-        },
-      ],
-    };
-    let divisions = [
-      {
-        id: 1,
-        division_name: "ঢাকা",
-        status: "published",
-      },
-      {
-        id: 2,
-        division_name: "চট্টগ্রাম",
-        status: "published",
-      },
-      {
-        id: 3,
-        division_name: "রাজশাহী",
-        status: "published",
-      },
-      {
-        id: 4,
-        division_name: "সিলেট",
-        status: "unpublished",
-      },
-      {
-        id: 5,
-        division_name: "ময়মনসিংহ",
-        status: "published",
-      },
-      {
-        id: 6,
-        division_name: "বরিশাল",
-        status: "archived",
-      },
-      {
-        id: 7,
-        division_name: "রংপুর",
-        status: "published",
-      },
-      {
-        id: 8,
-        division_name: "খুলনা",
-        status: "published",
-      },
-      {
-        id: 9,
-        division_name: "মেঘনা",
-        status: "published",
-      },
-    ];
-
-    this.districts = response.results;
-    this.divisions = divisions;
+    this.allDistricts();
+    this.allDivisions();
   },
 };
 </script>

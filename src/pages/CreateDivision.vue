@@ -26,7 +26,6 @@
                           placeholder="বিভাগের নাম"
                           v-model="form.division_name"
                         />
-                        <!-- <small class="text-danger" v-if="errors.division_name">{{ errors.division_name[0] }}</small> -->
                       </div>
                       <div class="col-12">
                         <div class="d-grid">
@@ -55,7 +54,7 @@
                 >
                   <thead>
                     <tr>
-                      <td>আইডি</td>
+                      <td>আইডি নং</td>
                       <td>বিভাগের নাম</td>
                       <td>স্টেটাস</td>
                       <td>একশন</td>
@@ -66,20 +65,32 @@
                       <td>{{ item.id }}</td>
                       <td>{{ item.division_name }}</td>
                       <td>
-                          <button v-if="item.status == 'published'" type="button" class="btn btn-success btn-sm">
+                        <button
+                          v-if="item.status == 'published'"
+                          type="button"
+                          class="btn btn-success btn-sm"
+                        >
                           Published
                         </button>
-                          <button v-if="item.status == 'unpublished'" type="button" class="btn btn-danger btn-sm">
+                        <button
+                          v-if="item.status == 'unpublished'"
+                          type="button"
+                          class="btn btn-danger btn-sm"
+                        >
                           Unpublished
                         </button>
-                          <button v-if="item.status == 'archived'" type="button" class="btn btn-secondary btn-sm">
+                        <button
+                          v-if="item.status == 'archived'"
+                          type="button"
+                          class="btn btn-secondary btn-sm"
+                        >
                           Archived
                         </button>
                       </td>
                       <td>
-                        <div class="btn-group">
+                        <div class="btn-group dropstart">
                           <button
-                            class="btn btn-secondary btn-sm dropdown-toggle"
+                            class="btn btn-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
@@ -87,9 +98,27 @@
                             Action
                           </button>
                           <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Publish</a></li>
-                            <li><a class="dropdown-item" href="#">Unpublish</a></li>
-                            <li><a class="dropdown-item" href="#">Archive</a></li>
+                            <li>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('published', item.id)"
+                                >Publish</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('unpublished', item.id)"
+                                >Unpublish</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('archived', item.id)"
+                                >Archive</a
+                              >
+                            </li>
                           </ul>
                         </div>
                       </td>
@@ -117,6 +146,7 @@ import WrapperPart from "@/partials/WrapperPart";
 import SidebarPart from "@/partials/SidebarPart";
 import sideb from "@/assets/main";
 import axios from "axios";
+
 // import authHeader from "../auth";
 
 export default {
@@ -143,31 +173,50 @@ export default {
     SidebarPart,
   },
   methods: {
+    async respond(status, id) {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      return axios
+        .patch(
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/division/" +
+            id +
+            "/",
+          { status: status }
+        )
+        .then((response) => {
+          if (response) {
+            this.allDivisions();
+          }
+          return true;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
     async allDivisions() {
-      let user = JSON.parse(localStorage.getItem("users"));
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       await axios
         .get(
-          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/division/",
-          {
-            headers: {
-              token: user.token,
-            },
-          }
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/division/?lim=100"
         )
-        .then(({ data }) => (this.divisions = data))
+        .then(({ data }) => (this.divisions = data.results))
         .catch();
     },
     async storeDivision() {
-      //   let user = JSON.parse(localStorage.getItem("users"));
-
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       return axios
         .post(
           process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/division/",
           this.form
         )
-        .then(() => {
-          console.log("Created!");
-          //   this.$router.push({name:'CreateDivision'})
+        .then((response) => {
+          if (response) {
+            this.allDivisions();
+          }
           return true;
         })
         .catch((error) => {
@@ -175,63 +224,8 @@ export default {
         });
     },
   },
-
   created() {
-    let response = {
-      count: 9,
-      next: null,
-      previous: null,
-      results: [
-        {
-          id: 1,
-          division_name: "ঢাকা",
-          status: "published",
-        },
-        {
-          id: 2,
-          division_name: "চট্টগ্রাম",
-          status: "published",
-        },
-        {
-          id: 3,
-          division_name: "রাজশাহী",
-          status: "published",
-        },
-        {
-          id: 4,
-          division_name: "সিলেট",
-          status: "unpublished",
-        },
-        {
-          id: 5,
-          division_name: "ময়মনসিংহ",
-          status: "published",
-        },
-        {
-          id: 6,
-          division_name: "বরিশাল",
-          status: "archived",
-        },
-        {
-          id: 7,
-          division_name: "রংপুর",
-          status: "published",
-        },
-        {
-          id: 8,
-          division_name: "খুলনা",
-          status: "published",
-        },
-        {
-          id: 9,
-          division_name: "মেঘনা",
-          status: "published",
-        },
-      ],
-    };
-
-    this.divisions = response.results;
-    console.log(response.results);
+    this.allDivisions();
   },
 };
 </script>

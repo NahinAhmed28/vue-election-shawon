@@ -16,78 +16,46 @@
                   <div class="border p-3 rounded">
                     <h3 class="mb-0 text-uppercase">কেন্দ্র তৈরী করুন</h3>
                     <hr />
-                    <form class="row g-3" @submit.prevent="storeDivision">
+                    <form class="row g-3" @submit.prevent="storeCenter">
                       <div class="col-12">
-                        <label class="form-label">বিভাগের নাম</label>
+                        <label class="form-label">আসন</label>
                         <div class="input-group">
                           <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
                             </button> -->
                           <select
                             class="form-select single-select"
-                            id="division"
-                            v-model="form.division"
+                            id="constituency"
+                            v-model="form.constituency"
                           >
                             <option selected>বাছাই করুন</option>
                             <option
-                              :value="division.id"
-                              v-for="division in divisions"
-                              :key="division.id"
+                              :value="constituency.id"
+                              v-for="constituency in constituencies"
+                              :key="constituency.id"
                             >
-                              {{ division.division_name }}
+                              {{ constituency.seat }}
                             </option>
                           </select>
                         </div>
                       </div>
                       <div class="col-12">
-                        <label class="form-label">জেলার নাম</label>
-                        <div class="input-group">
-                          <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
-                            </button> -->
-                          <select
-                              class="form-select single-select"
-                              id="district"
-                              v-model="form.district_name"
-                          >
-                            <option selected>বাছাই করুন</option>
-                            <option
-                                :value="district.id"
-                                v-for="district in districts"
-                                :key="district.id"
-                            >
-                              {{ district.district_name }}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">আসনের নাম</label>
-                        <div class="input-group">
-                          <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
-                            </button> -->
-                          <select
-                              class="form-select single-select"
-                              id="constituency"
-                              v-model="form.constituency_name"
-                          >
-                            <option selected>বাছাই করুন</option>
-                            <option
-                                :value="constituency.id"
-                                v-for="constituency in constituencies"
-                                :key="constituencies.id"
-                            >
-                              {{ constituency.constituency_name }}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-12">
-                        <label class="form-label">কেন্দ্রের নাম</label>
+                        <label class="form-label">সেন্টারের নাম</label>
                         <input
-                            type="text"
-                            class="form-control"
-                            id="center_name"
-                            placeholder="কেন্দ্রের নাম"
-                            v-model="form.center_name"
+                          type="text"
+                          class="form-control"
+                          id="center"
+                          placeholder="সেন্টারের নাম"
+                          v-model="form.center"
+                        />
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label">সেন্টারের কোড</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="code"
+                          placeholder="সেন্টারের কোড"
+                          v-model="form.code"
                         />
                       </div>
                       <div class="col-12">
@@ -106,7 +74,7 @@
         </div>
         <div style="padding-top: 2rem">
           <hr />
-          <h4>কেন্দ্রের তালিকা</h4>
+          <h4>সেন্টারের তালিকা</h4>
 
           <div class="card">
             <div class="card-body">
@@ -118,18 +86,19 @@
                   <thead>
                     <tr>
                       <td>আইডি</td>
-                      <td>জেলার নাম</td>
-                      <td>বিভাগের নাম</td>
+                      <td>আসন</td>
+                      <td>সেন্টারের নাম</td>
+                      <td>সেন্টারের কোড</td>
                       <td>স্টেটাস</td>
                       <td>একশন</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="item in districts" :key="item.id">
+                    <tr v-for="item in centers" :key="item.id">
                       <td>{{ item.id }}</td>
-                      <td>{{ item.constituency_name }}</td>
-                      <td>{{ item.district_name }}</td>
-                      <td>{{ item.division }}</td>
+                      <td>{{ item.constituency }}</td>
+                      <td>{{ item.center }}</td>
+                      <td>{{ item.code }}</td>
                       <td>
                         <button
                           v-if="item.status == 'published'"
@@ -154,9 +123,9 @@
                         </button>
                       </td>
                       <td>
-                        <div class="btn-group">
+                        <div class="btn-group dropstart">
                           <button
-                            class="btn btn-secondary btn-sm dropdown-toggle"
+                            class="btn btn-secondary dropdown-toggle"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
@@ -165,13 +134,25 @@
                           </button>
                           <ul class="dropdown-menu">
                             <li>
-                              <a class="dropdown-item" href="#">Publish</a>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('published', item.id)"
+                                >Publish</a
+                              >
                             </li>
                             <li>
-                              <a class="dropdown-item" href="#">Unpublish</a>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('unpublished', item.id)"
+                                >Unpublish</a
+                              >
                             </li>
                             <li>
-                              <a class="dropdown-item" href="#">Archive</a>
+                              <a
+                                class="dropdown-item"
+                                @click="respond('archived', item.id)"
+                                >Archive</a
+                              >
                             </li>
                           </ul>
                         </div>
@@ -190,11 +171,10 @@
 
 
 <script>
-// import $ from "jquery";
-// import "jquery/dist/jquery.min.js";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "datatables.net-dt/js/dataTables.dataTables";
-// import "datatables.net-dt/css/jquery.dataTables.min.css";
+import "jquery/dist/jquery.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
 import HeaderPart from "@/partials/HeaderPart";
 import WrapperPart from "@/partials/WrapperPart";
 import SidebarPart from "@/partials/SidebarPart";
@@ -210,12 +190,12 @@ export default {
   },
   data() {
     return {
-      districts: [],
-      divisions: [],
-      constituencies :[],
+      centers: [],
+      constituencies: [],
       form: {
-        district: null,
-        division: 0,
+        center: null,
+        constituency: 0,
+        code: 0,
       },
       errors: {},
     };
@@ -229,31 +209,61 @@ export default {
     SidebarPart,
   },
   methods: {
-    async allDistricts() {
-      let user = JSON.parse(localStorage.getItem("users"));
+    async respond(status, id) {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      return axios
+        .patch(
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/center/" +
+            id +
+            "/",
+          { status: status }
+        )
+        .then((response) => {
+          if (response) {
+            this.allConstituency();
+            this.allCenters();
+          }
+          return true;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+    async allConstituency() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       await axios
         .get(
-          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/",
-          {
-            headers: {
-              token: user.token,
-            },
-          }
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/constituency/"
         )
-        .then(({ data }) => (this.districts = data))
+        .then(({ data }) => (this.constituencies = data.results))
         .catch();
     },
-    async storeDistrict() {
-      //   let user = JSON.parse(localStorage.getItem("users"));
-
+    async allCenters() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      await axios
+        .get(process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/center/")
+        .then(({ data }) => (this.centers = data.results))
+        .catch();
+    },
+    async storeCenter() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       return axios
         .post(
-          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/",
+          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/center/",
           this.form
         )
-        .then(() => {
-          console.log("Created!");
-          //   this.$router.push({name:'CreateDivision'})
+        .then((response) => {
+           if (response) {
+           this.allConstituency();
+            this.allCenters();
+            alert(response)
+          }
           return true;
         })
         .catch((error) => {
@@ -261,125 +271,9 @@ export default {
         });
     },
   },
-
   created() {
-    let response = {
-      count: 9,
-      next: null,
-      previous: null,
-      results: [
-        {
-          id: 1,
-          division: "ঢাকা",
-          district_name: "নরসিংদী",
-          status: "published",
-        },
-        {
-          id: 2,
-          division: "ঢাকা",
-          district_name: "গাজীপুর",
-          status: "published",
-        },
-        {
-          id: 3,
-          division: "ঢাকা",
-          district_name: "শরীয়তপুর",
-          status: "published",
-        },
-        {
-          id: 4,
-          division: "ঢাকা",
-          district_name: "নারায়ণগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 5,
-          division: "ঢাকা",
-          district_name: "টাঙ্গাইল",
-          status: "published",
-        },
-        {
-          id: 6,
-          division: "ঢাকা",
-          district_name: "কিশোরগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 7,
-          division: "ঢাকা",
-          district_name: "মানিকগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 8,
-          division: "ঢাকা",
-          district_name: "ঢাকা",
-          status: "published",
-        },
-        {
-          id: 9,
-          division: "ঢাকা",
-          district_name: "মুন্সিগঞ্জ",
-          status: "published",
-        },
-        {
-          id: 10,
-          division: "ঢাকা",
-          district_name: "রাজবাড়ী",
-          status: "published",
-        },
-      ],
-    };
-    let divisions = [
-      {
-        id: 1,
-        division_name: "ঢাকা",
-        status: "published",
-      },
-      {
-        id: 2,
-        division_name: "চট্টগ্রাম",
-        status: "published",
-      },
-      {
-        id: 3,
-        division_name: "রাজশাহী",
-        status: "published",
-      },
-      {
-        id: 4,
-        division_name: "সিলেট",
-        status: "unpublished",
-      },
-      {
-        id: 5,
-        division_name: "ময়মনসিংহ",
-        status: "published",
-      },
-      {
-        id: 6,
-        division_name: "বরিশাল",
-        status: "archived",
-      },
-      {
-        id: 7,
-        division_name: "রংপুর",
-        status: "published",
-      },
-      {
-        id: 8,
-        division_name: "খুলনা",
-        status: "published",
-      },
-      {
-        id: 9,
-        division_name: "মেঘনা",
-        status: "published",
-      },
-    ];
-
-    this.districts = response.results;
-    this.divisions = divisions;
+    this.allConstituency();
+    this.allCenters();
   },
 };
 </script>

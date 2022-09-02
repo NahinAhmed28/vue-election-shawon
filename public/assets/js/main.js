@@ -181,9 +181,9 @@ function theme8() {
 
 
     // Tooltops
-    $(function () {
-      $('[data-bs-toggle="tooltip"]').tooltip();
-    })
+    // $(function () {
+    //   $('[data-bs-toggle="tooltip"]').tooltip();
+    // })
 
 
   
