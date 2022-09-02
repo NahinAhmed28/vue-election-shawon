@@ -10,7 +10,6 @@
       <div class="container" style="padding-top: 2rem">
         <div class="row">
           <div class="col-md-12" style="margin: 0 auto">
-            <div style="border: 0.5px solid lightgrey">
               <div class="card">
                 <div class="card-body">
                   <div class="border p-3 rounded">
@@ -20,11 +19,11 @@
                       <div class="col-12">
                         <label class="form-label">জেলার নাম</label>
                         <div class="input-group">
-                          <!-- <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
-                            </button> -->
+                          <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
+                          </button>
                           <select
                             class="form-select single-select"
-                            id="district"
+                            id="inputGroupSelect04"
                             v-model="form.district"
                           >
                             <option selected>বাছাই করুন</option>
@@ -69,7 +68,6 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
         <div style="padding-top: 2rem">
@@ -80,7 +78,7 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table
-                  id="division_list"
+                  id="example2"
                   class="table table-striped table-bordered"
                 >
                   <thead>

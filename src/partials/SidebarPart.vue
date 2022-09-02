@@ -57,37 +57,39 @@
         </a>
         <ul>
           <li>
-            <RouterLink to="/create-division"
-              ><ion-icon name="ellipse-outline"></ion-icon>বিভাগ</RouterLink
-            >
+            <RouterLink to="/create-division">
+              <ion-icon name="ellipse-outline"></ion-icon>বিভাগ
+            </RouterLink>
           </li>
           <li>
-            <RouterLink to="/create-district"
-              ><ion-icon name="ellipse-outline"></ion-icon>জেলা</RouterLink
-            >
+            <RouterLink to="/create-district">
+              <ion-icon name="ellipse-outline"></ion-icon>জেলা
+            </RouterLink>
           </li>
           <li>
-            <RouterLink to="/create-constituency"
-              ><ion-icon name="ellipse-outline"></ion-icon>আসন</RouterLink
-            >
+            <RouterLink to="/create-constituency">
+              <ion-icon name="ellipse-outline"></ion-icon>আসন
+            </RouterLink>
           </li>
           <li>
-            <RouterLink to="/create-center"
-              ><ion-icon name="ellipse-outline"></ion-icon>কেন্দ্র</RouterLink
-            >
+            <RouterLink to="/create-center">
+              <ion-icon name="ellipse-outline"></ion-icon>কেন্দ্র
+            </RouterLink>
           </li>
           <li>
-            <a href="#"><ion-icon name="ellipse-outline"></ion-icon>দলের নাম</a>
+            <RouterLink to="/create-center">
+              <ion-icon name="ellipse-outline"></ion-icon>দলের নাম
+            </RouterLink>
           </li>
           <li>
-            <a href="#"
-              ><ion-icon name="ellipse-outline"></ion-icon>রাজনৈতিক দলের তথ্য</a
-            >
+            <RouterLink to="/create-political-party">
+           <ion-icon name="ellipse-outline"></ion-icon>রাজনৈতিক দলের তথ্য
+            </RouterLink>
           </li>
           <li>
-            <a href="#"
-              ><ion-icon name="ellipse-outline"></ion-icon>প্রার্থীর তথ্য</a
-            >
+            <RouterLink to="/create-political-candidate">
+            <ion-icon name="ellipse-outline"></ion-icon>প্রার্থীর তথ্য
+            </RouterLink>
           </li>
           <li>
             <a href="#"

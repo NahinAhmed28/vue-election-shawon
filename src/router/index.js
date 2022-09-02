@@ -10,6 +10,8 @@ import CreateDivisionPage from "@/pages/CreateDivision";
 import CreateDistrictPage from "@/pages/CreateDistrict";
 import CreateConstituencyPage from "@/pages/CreateConstituency";
 import CreateCenterPage from "@/pages/CreateCenter";
+import CreatePoliticalPartyPage from "@/pages/CreatePoliticalParty";
+import CreatePoliticalCandidatePage from "@/pages/CreatePoliticalCandidate";
 
 const routes = [
     {
@@ -66,6 +68,15 @@ const routes = [
         path: '/create-constituency',
         name: 'CreateConstituency',
         component: CreateConstituencyPage
+    }
+    ,{
+        path: '/create-political-party',
+        name: 'CreatePoliticalParty',
+        component: CreatePoliticalPartyPage
+    },{
+        path: '/create-political-candidate',
+        name: 'CreatePoliticalCandidate',
+        component: CreatePoliticalCandidatePage
     }
 ];
 const router = createRouter({
