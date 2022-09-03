@@ -8,7 +8,7 @@
     <!-- start page content-->
     <div class="page-content">
       <div class="container" style="padding-top: 2rem;">
-        <h2 style="margin-bottom: 25px">আসন নং ৩৩ঃ গাইবান্ধা ৫</h2>
+        <h2 style="margin-bottom: 25px">বিভাগঃ রংপুর</h2>
         <div class="row">
           <div class="col-md-4">
 
@@ -587,7 +587,7 @@ export default {
 
     }
   },
-  name: "ResultPage",
+  name: "DivisionResultPage",
   components: {
     apexchart: VueApexCharts,
     HeaderPart,

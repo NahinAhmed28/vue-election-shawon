@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from "@/pages/LandingPage";
 import DistrictPage from "@/pages/DistrictPage";
-import ResultPage from "@/pages/ResultPage";
+import DivisionResultPage from "@/pages/result/DivisionResultPage";
+import DistrictResultPage from "@/pages/result/DistrictResultPage";
+import ConstituencyResultPage from "@/pages/result/ConstituencyResultPage";
 import TablePage from "@/pages/TablePage";
 import LoginPage from "@/pages/auth/LoginPage";
 import DashboardStaffPage from "@/pages/DashboardStaff";
@@ -12,6 +14,7 @@ import CreateConstituencyPage from "@/pages/CreateConstituency";
 import CreateCenterPage from "@/pages/CreateCenter";
 import CreatePoliticalPartyPage from "@/pages/CreatePoliticalParty";
 import CreatePoliticalCandidatePage from "@/pages/CreatePoliticalCandidate";
+
 
 const routes = [
     {
@@ -35,9 +38,19 @@ const routes = [
         // component: DashboardAgentPage
     },
     {
-        path: '/result',
-        name: 'Result',
-        component: ResultPage
+        path: '/division-result',
+        name: 'DivisionResult',
+        component: DivisionResultPage
+    },
+    {
+        path: '/district-result',
+        name: 'DistrictResult',
+        component: DistrictResultPage
+    },
+    {
+        path: '/constituency-result',
+        name: 'ConstituencyResult',
+        component: ConstituencyResultPage
     },
     {
         path: '/center-result',
