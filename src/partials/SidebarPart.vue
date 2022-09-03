@@ -76,11 +76,11 @@
               <ion-icon name="ellipse-outline"></ion-icon>কেন্দ্র
             </RouterLink>
           </li>
-          <li>
+          <!-- <li>
             <RouterLink to="/create-center">
               <ion-icon name="ellipse-outline"></ion-icon>দলের নাম
             </RouterLink>
-          </li>
+          </li> -->
           <li>
             <RouterLink to="/create-political-party">
            <ion-icon name="ellipse-outline"></ion-icon>রাজনৈতিক দলের তথ্য

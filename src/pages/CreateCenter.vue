@@ -32,7 +32,7 @@
                               v-for="constituency in constituencies"
                               :key="constituency.id"
                             >
-                              {{ constituency.constituency }}
+                              {{ constituency.seat }}
                             </option>
                           </select>
                         </div>
