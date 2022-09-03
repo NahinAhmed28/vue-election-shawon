@@ -55,7 +55,8 @@
                                 v-for="constituency in constituencies"
                                 :key="constituency.id"
                             >
-                              {{ constituency.constituency }}
+                              {{ constituency.seat }} 
+                              <!-- (আ.নংঃ {{ constituency.seat_no }}) -->
                             </option>
                           </select>
                         </div>
@@ -70,16 +71,18 @@
                             v-model="form.candidate_name"
                         />
                       </div>
-                      <div class="col-12">
-                        <label class="form-label">প্রার্থীর ছবি</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="candidate_image"
-                            placeholder="প্রার্থীর ছবি"
-                            v-model="form.candidate_image"
-                        />
-                      </div>
+                       <div class="col-12">
+                      <label class="form-label">প্রার্থীর ছবি</label>
+
+                      <input
+                        type="file"
+                        class="form-control"
+                        @change="onFileSelected2" 
+                        id="candidate_image"
+                        placeholder="প্রার্থীর ছবি"
+                        v-on:change="form.candidate_image"
+                      />
+                    </div>
                       <div class="col-12">
                         <label class="form-label">ভোট</label>
                         <input
@@ -129,6 +132,7 @@
                   <tbody>
                   <tr v-for="item in divisions" :key="item.id">
                     <td>{{ item.id }}</td>
+                    <td><img :src="item.candidate_image" id="symbol-photo" /></td>
                     <td>{{ item.candidate_image }}</td>
                     <td>{{ item.candidate_name }}</td>
                     <td>{{ item.vote }}</td>
@@ -228,6 +232,7 @@ export default {
     return {
       candidates: [],
       parties: [],
+      constituencies: [],
       form: {
         party_name: null,
         candidate_name: null,
@@ -296,10 +301,38 @@ export default {
             console.error(error);
           });
     },
+    async allConstituency() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      await axios
+        .get(
+          process.env.VUE_APP_BASE_URL +
+            "/api/v1/pera/region-admin/constituency/"
+        )
+        .then(({ data }) => (this.constituencies = data.results))
+        .catch();
+    },
+    async allParties() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      await axios
+        .get(process.env.VUE_APP_BASE_URL + "/api/v1/pera/political/party/")
+        .then(({ data }) => (this.parties = data.results))
+        .catch();
+    },
   },
   created() {
     this.allCandidates();
+    this.allConstituency();
+    this.allParties();
+    
   },
 };
 </script>
 
+<style>
+#symbol-photo {
+  height: 60px;
+  width: 60px;
+}
+</style>

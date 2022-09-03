@@ -244,7 +244,7 @@ export default {
       axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       return axios
         .post(
-          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/",
+          process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/?lim=100",
           this.form
         )
         .then((response) => {
