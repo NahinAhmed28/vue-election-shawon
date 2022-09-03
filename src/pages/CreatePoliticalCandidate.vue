@@ -25,7 +25,7 @@
 
                           <select
                               class="form-select single-select"
-                              id="inputGroupSelect04"
+                              id="inputGroupSelect03"
                               v-model="form.party_name"
                           >
                             <option selected>বাছাই করুন</option>
@@ -130,10 +130,10 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="item in divisions" :key="item.id">
+                  <tr v-for="item in candidates" :key="item.id">
                     <td>{{ item.id }}</td>
                     <td><img :src="item.candidate_image" id="symbol-photo" /></td>
-                    <td>{{ item.candidate_image }}</td>
+<!--                    <td>{{ item.candidate_image }}</td>-->
                     <td>{{ item.candidate_name }}</td>
                     <td>{{ item.vote }}</td>
                     <td>{{ item.party_name }}</td>
