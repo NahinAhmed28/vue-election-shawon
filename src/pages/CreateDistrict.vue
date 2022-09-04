@@ -17,21 +17,24 @@
                     <hr />
                     <form class="row g-3" @submit.prevent="storeDistrict">
                       <div class="col-12">
-                        <label class="form-label">বিভাগের নাম</label>
+                        <label class="form-label">আসন</label>
                         <div class="input-group">
-                          <button class="btn btn-outline-secondary" type="button"><i class='bx bx-search'></i>
-                          </button>
-
-                          <select
-                            class="form-select single-select"
-                            id="inputGroupSelect04"
-                            v-model="form.division"
+                          <button
+                              class="btn btn-outline-secondary"
+                              type="button"
                           >
-                            <option selected>বাছাই করুন</option>
+                            <i class="bx bx-search"></i>
+                          </button>
+                          <select
+                              class="form-select single-select"
+                              id="inputGroupSelect05"
+                              aria-label="Example select with button addon"
+                          >
+                            <option value="">বাছাই করুন</option>
                             <option
-                              :value="division.id"
-                              v-for="division in divisions"
-                              :key="division.id"
+                                :value="division.id"
+                                v-for="division in divisions"
+                                :key="division.id"
                             >
                               {{ division.division_name }}
                             </option>
