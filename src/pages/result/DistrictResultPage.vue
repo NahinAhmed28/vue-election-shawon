@@ -1,90 +1,146 @@
 <template>
-
-
-      <HeaderPart/>
-
+  <HeaderPart />
 
   <div class="page-content-wrapper">
     <!-- start page content-->
     <div class="page-content">
-      <div class="container" style="padding-top: 2rem;">
-        <h2 style="margin-bottom: 25px">জেলাঃ গাইবান্ধা </h2>
+      <div class="container" style="padding-top: 2rem">
+        <h2 style="margin-bottom: 25px">জেলাঃ {{ results.district_name }}</h2>
+
         <div class="row">
           <div class="col-md-4">
-
-            <div class="card" style="height:230px ">
-              <h5 class="card-title"
-                  style="background:#5f57c9;color: white; margin-top: 0px;padding: 10px;font-weight: bold ">
-                <span class="glyphicon glyphicon-info-sign"></span> আসনের হালনাগাদ</h5>
-              <div style="padding: 15px;">
+            <div class="card" style="height: 230px">
+              <h5
+                class="card-title"
+                style="
+                  background: #5f57c9;
+                  color: white;
+                  margin-top: 0px;
+                  padding: 10px;
+                  font-weight: bold;
+                "
+              >
+                <span class="glyphicon glyphicon-info-sign"></span> আসনের
+                হালনাগাদ
+              </h5>
+              <div style="padding: 15px">
                 <div class="row1">
                   <label for="ason1">মোট ভোটার</label>
-                  <h6 id="ason1" style="float: right; "> ৪৩২৫৬ </h6>
+                  <h6 id="ason1" style="float: right">
+                    {{ results.total_voter }}
+                  </h6>
                 </div>
                 <div class="row2">
                   <label for="ason2">প্রদানক্রিত ভোট</label>
-                  <h6 id="ason2" style="float: right; margin-right:-62px  "> ৭৪৬৪৫৬ </h6>
+                  <h6 id="ason2" style="float: right; margin-right: -62px">
+                    {{ results.valid_vote }}
+                  </h6>
                 </div>
                 <div class="row3">
                   <label for="ason3" style="">আওয়ামীলীগ</label>
-                  <h6 id="ason3" style="float: right; margin-right: -54px"> ৭৪৫৬ </h6>
+                  <h6 id="ason3" style="float: right; margin-right: -54px">
+                    ৭৪৫৬
+                  </h6>
                 </div>
                 <div class="row4">
                   <label for="ason4" style="">বিএনপি</label>
-                  <h6 id="ason4" style="float: right;margin-right: 16px"> ৭৪৫৬ </h6>
+                  <h6 id="ason4" style="float: right; margin-right: 16px">
+                    ৭৪৫৬
+                  </h6>
                 </div>
                 <div class="row5">
                   <label for="ason5" style="">জাতীয় পার্টি</label>
-                  <h6 id="ason5" style="float: right;margin-right: -50px"> ৫৪৫৬ </h6>
+                  <h6 id="ason5" style="float: right; margin-right: -50px">
+                    ৫৪৫৬
+                  </h6>
                 </div>
                 <div class="row6">
                   <label for="ason6">অন্যান্য</label>
-                  <h6 id="ason6" style="float: right;margin-right: 12px"> ৬৪৫৬ </h6>
+                  <h6 id="ason6" style="float: right; margin-right: 12px">
+                    ৬৪৫৬
+                  </h6>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-md-4">
-            <div class="card" style="height:230px">
-
-              <h5 class="card-title"
-                  style="background:#5f57c9;color: white;margin-top: 0px;padding: 10px ;font-weight: bold "><span
-                  class="glyphicon glyphicon-info-sign"></span> দলভিত্তিক কেন্দ্রের অবস্থান </h5>
+            <div class="card" style="height: 230px">
+              <h5
+                class="card-title"
+                style="
+                  background: #5f57c9;
+                  color: white;
+                  margin-top: 0px;
+                  padding: 10px;
+                  font-weight: bold;
+                "
+              >
+                <span class="glyphicon glyphicon-info-sign"></span> দলভিত্তিক
+                কেন্দ্রের অবস্থান
+              </h5>
               <div style="padding: 20px">
                 <div class="row1">
                   <label for="inputason11">সর্বমোট কেন্দ্র</label>
-                  <h6 id="inputason11" style="float: right; margin-right: 5px"> ৪৩২৫৬ </h6>
+                  <h6 id="inputason11" style="float: right; margin-right: 5px">
+                    {{ results.total_center }}
+                  </h6>
                 </div>
                 <div class="row2">
                   <label for="inputason12">আওয়ামীলীগ</label>
-                  <h6 id="inputason12" style="float: right; margin-right: -71px"> ৭৪৬৪৫৬ </h6>
+                  <h6
+                    id="inputason12"
+                    style="float: right; margin-right: -71px"
+                  >
+                    ৭৪৬৪৫৬
+                  </h6>
                 </div>
                 <div class="row3">
                   <label for="inputason14">বিএনপি</label>
-                  <h6 id="inputason14" style="float: right; margin-right: -7px"> ৭৪৬৪৫৬ </h6>
+                  <h6 id="inputason14" style="float: right; margin-right: -7px">
+                    ৭৪৬৪৫৬
+                  </h6>
                 </div>
                 <div class="row3">
                   <label for="inputason14">জাতীয় পার্টি</label>
-                  <h6 id="inputason14" style="float: right; margin-right: -70px"> ৭৪৬৪৫৬ </h6>
+                  <h6
+                    id="inputason14"
+                    style="float: right; margin-right: -70px"
+                  >
+                    ৭৪৬৪৫৬
+                  </h6>
                 </div>
                 <div class="row5">
                   <label for="inputason15">অন্যান্য</label>
-                  <h6 id="inputason15" style="float: right; margin-right: -70px"> ৭৪৬৪৫৬ </h6>
+                  <h6
+                    id="inputason15"
+                    style="float: right; margin-right: -70px"
+                  >
+                    ৭৪৬৪৫৬
+                  </h6>
                 </div>
               </div>
-
             </div>
           </div>
           <div class="col-md-4">
-
             <!--                <h4 style="text-align: center;font-weight: bold">আসন/<br>কেন্দ্র ভিত্তিক ম্যাপ</h4>-->
             <!--svg map-->
-            <svg version="1.1" id="detailsPageMap" xmlns="http://www.w3.org/2000/svg"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 269"
-                 style="enable-background:new 0 0 300 269;" xml:space="preserve">
-<a href="../seat/224">
-<polyline id="seat_224" class="st0" points="57.5,130.6 58.4,130.6 57.5,130.6 57.5,129.8 56.7,129.8 54.9,129.8 54.9,130.6 54.9,129.8 54,130.6
+            <svg
+              version="1.1"
+              id="detailsPageMap"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 300 269"
+              style="enable-background: new 0 0 300 269"
+              xml:space="preserve"
+            >
+              <a href="../seat/224">
+                <polyline
+                  id="seat_224"
+                  class="st0"
+                  points="57.5,130.6 58.4,130.6 57.5,130.6 57.5,129.8 56.7,129.8 54.9,129.8 54.9,130.6 54.9,129.8 54,130.6
 	53.2,130.6 53.2,129.8 53.2,130.6 52.3,130.6 51.4,129.8 51.4,128.9 50.5,128.9 50.5,128 49.6,128 48.7,128.9 47.9,128.9
 	47.9,129.8 47.9,130.6 48.7,130.6 48.7,131.6 47.9,131.6 47.9,132.4 47,132.4 47,133.3 46.1,133.3 46.1,134.2 45.2,134.2
 	45.2,135.1 45.2,137.7 44.4,137.7 44.4,135.9 43.5,135.9 42.6,135.9 42.6,136.8 40.8,136.8 40.8,135.9 39.9,135.9 39.9,135.1
@@ -159,13 +215,22 @@
 	72.5,145.6 71.7,145.6 71.7,144.7 70.8,144.7 70.8,143 71.7,143 71.7,142.1 72.5,142.1 72.5,141.2 71.7,141.2 71.7,139.4
 	70.8,139.4 70.8,138.6 69.9,138.6 69.9,136.8 69,136.8 69,135.1 68.1,135.1 68.1,135.9 67.2,135.9 67.2,135.1 67.2,135.9
 	65.5,135.9 65.5,135.1 65.5,134.2 64.6,134.2 63.7,134.2 63.7,133.3 62.8,133.3 62.8,132.4 62.8,131.6 62,131.6 62,130.6
-	61.1,130.6 60.2,130.6 60.2,131.6 57.5,131.6 57.5,130.6 "></polyline>
-  <g>
-<text transform="matrix(1 0 0 1 66.5039 83.335)" class="st1 st2">১</text>
-</g>
-</a>
+	61.1,130.6 60.2,130.6 60.2,131.6 57.5,131.6 57.5,130.6 "
+                ></polyline>
+                <g>
+                  <text
+                    transform="matrix(1 0 0 1 66.5039 83.335)"
+                    class="st1 st2"
+                  >
+                    ১
+                  </text>
+                </g>
+              </a>
               <a href="../seat/225">
-<polyline id="seat_225" class="st0" points="158.9,150.9 159.7,150.9 159.7,151.8 163.2,151.8 163.2,152.7 164.1,152.7 165,153.5 165.9,153.5
+                <polyline
+                  id="seat_225"
+                  class="st0"
+                  points="158.9,150.9 159.7,150.9 159.7,151.8 163.2,151.8 163.2,152.7 164.1,152.7 165,153.5 165.9,153.5
 	165.9,154.4 167.7,154.4 167.7,153.5 167.7,151.8 168.5,151.8 168.5,153.5 169.4,153.5 171.2,153.5 171.2,152.7 173.8,152.7
 	173.8,153.5 174.7,153.5 174.7,155.3 174.7,154.4 175.5,154.4 175.5,153.5 176.5,153.5 176.5,152.7 179.1,152.7 179.1,151.8
 	179.1,150.9 180,150.9 180,151.8 180.9,151.8 181.7,152.7 183.5,152.7 183.5,153.5 189.7,153.5 189.7,154.4 190.5,154.4
@@ -229,13 +294,22 @@
 	143.9,135.1 143.9,137.7 144.8,138.6 145.6,138.6 145.6,139.4 147.4,139.4 147.4,140.4 149.1,140.4 149.1,141.2 149.1,142.1
 	150,142.1 150,143 150.9,143.9 150.9,147.4 151.8,147.4 153.6,147.4 153.6,146.5 154.4,146.5 154.4,145.6 154.4,146.5 155.3,146.5
 	157.9,146.5 157.9,145.6 162.4,145.6 162.4,146.5 162.4,147.4 161.5,147.4 161.5,148.3 160.6,148.3 159.7,148.3 159.7,149.2
-	158.9,149.2 158.9,150 158.9,150.9 "></polyline>
+	158.9,149.2 158.9,150 158.9,150.9 "
+                ></polyline>
                 <g>
-<text transform="matrix(1 0 0 1 139.9062 186.9551)" class="st1 st2">২</text>
-</g>
-</a>
+                  <text
+                    transform="matrix(1 0 0 1 139.9062 186.9551)"
+                    class="st1 st2"
+                  >
+                    ২
+                  </text>
+                </g>
+              </a>
               <a href="../seat/226">
-<polyline id="seat_226" class="st0" points="262.8,186.1 262.8,187.9 261.9,187.9 261.9,188.8 262.8,188.8 262.8,190.6 263.6,190.6 263.6,191.4
+                <polyline
+                  id="seat_226"
+                  class="st0"
+                  points="262.8,186.1 262.8,187.9 261.9,187.9 261.9,188.8 262.8,188.8 262.8,190.6 263.6,190.6 263.6,191.4
 	264.5,191.4 264.5,192.3 265.4,192.3 265.4,193.2 266.3,193.2 266.3,194.1 265.4,194.1 265.4,194.9 266.3,194.9 266.3,197.6
 	265.4,197.6 265.4,196.7 264.5,196.7 263.6,196.7 263.6,195.8 262.8,195.8 261.9,195.8 261.9,196.7 261,196.7 260.1,197.6
 	260.1,198.5 259.3,197.6 259.3,198.5 260.1,198.5 260.1,199.4 261,199.4 261.9,199.4 261.9,200.2 261,200.2 261,201.1 261,202.9
@@ -320,13 +394,22 @@
 	255.7,172 255.7,173 254.8,173 254,173.8 253.1,173.8 253.1,174.7 255.7,174.7 255.7,173.8 256.6,173.8 256.6,174.7 256.6,173.8
 	257.5,173.8 257.5,174.7 258.4,174.7 258.4,178.2 259.3,178.2 260.1,178.2 260.1,177.3 261,177.3 261,176.5 261,178.2 261,177.3
 	262.8,177.3 262.8,178.2 263.6,178.2 263.6,179.1 265.4,179.1 265.4,180 265.4,181.8 265.4,180.8 267.2,180.8 267.2,181.8
-	267.2,182.6 268.1,182.6 267.2,182.6 267.2,183.5 266.3,183.5 266.3,184.4 266.3,186.1 265.4,186.1 262.8,186.1 "></polyline>
+	267.2,182.6 268.1,182.6 267.2,182.6 267.2,183.5 266.3,183.5 266.3,184.4 266.3,186.1 265.4,186.1 262.8,186.1 "
+                ></polyline>
                 <g>
-<text transform="matrix(1 0 0 1 211.1377 194.9531)" class="st1 st2">৩</text>
-</g>
-</a>
+                  <text
+                    transform="matrix(1 0 0 1 211.1377 194.9531)"
+                    class="st1 st2"
+                  >
+                    ৩
+                  </text>
+                </g>
+              </a>
               <a href="../seat/227">
-<polyline id="seat_227" class="st0" points="139.5,89.2 139.5,90.2 138.6,90.2 138.6,88.4 137.7,88.4 137.7,87.5 136.8,87.5 136,87.5 136,88.4
+                <polyline
+                  id="seat_227"
+                  class="st0"
+                  points="139.5,89.2 139.5,90.2 138.6,90.2 138.6,88.4 137.7,88.4 137.7,87.5 136.8,87.5 136,87.5 136,88.4
 	135.1,88.4 135.1,87.5 134.2,87.5 134.2,86.6 133.3,86.6 133.3,85.7 132.4,85.7 132.4,84.9 130.7,84.9 130.7,85.7 128,85.7
 	128,86.6 125.4,86.6 126.3,86.6 126.3,85.7 127.1,85.7 126.3,85.7 126.3,84.9 127.1,84.9 127.1,84 127.1,82.2 126.3,82.2
 	126.3,81.3 125.4,81.3 124.5,81.3 124.5,80.4 123.6,80.4 123.6,81.3 122.7,81.3 122.7,82.2 121.8,82.2 121,83.1 120.1,83.1
@@ -378,13 +461,22 @@
 	143.9,105.1 143,104.2 143,101.6 143.9,101.6 143.9,102.5 144.8,102.5 144.8,101.6 145.6,101.6 145.6,100.7 144.8,100.7
 	143.9,100.7 143.9,99.9 143,99.9 143,99 142.1,99 142.1,98 143,97.2 142.1,97.2 142.1,96.3 141.2,96.3 141.2,95.4 141.2,94.5
 	142.1,94.5 142.1,93.7 143,93.7 142.1,93.7 142.1,92.8 140.3,92.8 140.3,93.7 139.5,93.7 139.5,92.8 139.5,91.9 138.6,91.9
-	138.6,91 139.5,91 139.5,89.2 "></polyline>
+	138.6,91 139.5,91 139.5,89.2 "
+                ></polyline>
                 <g>
-<text transform="matrix(1 0 0 1 158.8887 72.0918)" class="st1 st2">৪</text>
-</g>
-</a>
+                  <text
+                    transform="matrix(1 0 0 1 158.8887 72.0918)"
+                    class="st1 st2"
+                  >
+                    ৪
+                  </text>
+                </g>
+              </a>
               <a href="../seat/228">
-<polyline id="seat_228" class="st0" points="224.9,33.8 224.9,32.9 225.8,32 226.7,32 226.7,31.1 227.5,31.1 227.5,32 228.4,32 228.4,31.1
+                <polyline
+                  id="seat_228"
+                  class="st0"
+                  points="224.9,33.8 224.9,32.9 225.8,32 226.7,32 226.7,31.1 227.5,31.1 227.5,32 228.4,32 228.4,31.1
 	230.2,31.1 230.2,32 230.2,31.1 231,31.1 231,32 231,31.1 230.2,31.1 230.2,30.2 229.3,30.2 229.3,29.4 230.2,29.4 230.2,28.5
 	231,27.6 231,26.7 231.9,26.7 234.6,26.7 235.5,26.7 236.4,25.9 241.7,25.9 241.7,25 243.4,25 244.3,25.9 244.3,27.6 243.4,27.6
 	241.7,27.6 240.7,28.5 240.7,29.4 239.9,29.4 239.9,31.1 239,31.1 239.9,31.1 239.9,32 240.7,32 240.7,32.9 239.9,32.9 239.9,33.8
@@ -449,73 +541,108 @@
 	199.3,56.7 199.3,55.8 199.3,52.3 200.3,52.3 200.3,53.2 201.1,53.2 202,52.3 202,51.4 202.9,51.4 202.9,48.8 203.8,48.8
 	204.6,48.8 204.6,47.8 204.6,44.3 203.8,44.3 203.8,43.5 204.6,43.5 205.5,42.6 209.1,42.6 209.1,41.7 210.8,41.7 210.8,40.8
 	210.8,39 211.7,39 211.7,37.3 210.8,37.3 210.8,36.4 211.7,36.4 211.7,37.3 212.6,37.3 217,37.3 217,36.4 221.4,36.4 221.4,35.5
-	224.9,35.5 224.9,34.7 224.9,33.8 "></polyline>
+	224.9,35.5 224.9,34.7 224.9,33.8 "
+                ></polyline>
                 <g>
-<text transform="matrix(1 0 0 1 230.4463 121.8545)" class="st1 st2">৫</text>
-</g>
-</a>
-</svg>
+                  <text
+                    transform="matrix(1 0 0 1 230.4463 121.8545)"
+                    class="st1 st2"
+                  >
+                    ৫
+                  </text>
+                </g>
+              </a>
+            </svg>
           </div>
         </div>
 
         <h3 style="padding: 2rem 0 1rem 0">কেন্দ্রের সর্বশেষ প্রকাশিত ফলাফল</h3>
         <div class="row">
           <div class="col-md-4">
-            <div class="card" style="margin-top: 3px;height:230px">
-
-              <h5 class="card-title"
-                  style="background:#5f57c9;color: white;margin-top: 0px;padding: 10px ;font-weight: bold "><span
-                  class="glyphicon glyphicon-info-sign"></span>কেন্দ্রের হালনাগাদ </h5>
-              <div style="padding: 20px; font-size:12px ">
+            <div class="card" style="margin-top: 3px; height: 230px">
+              <h5
+                class="card-title"
+                style="
+                  background: #5f57c9;
+                  color: white;
+                  margin-top: 0px;
+                  padding: 10px;
+                  font-weight: bold;
+                "
+              >
+                <span class="glyphicon glyphicon-info-sign"></span>কেন্দ্রের
+                হালনাগাদ
+              </h5>
+              <div style="padding: 20px; font-size: 12px">
                 <div class="row1">
                   <label for="inputason21">মোট কেন্দ্র</label>
-                  <h6 id="inputason21" style="float: right; margin-right: 5px"> ৪৩২৫৬ </h6>
+                  <h6 id="inputason21" style="float: right; margin-right: 5px">
+                    {{ results.total_center }}
+                  </h6>
                 </div>
                 <div class="row2">
                   <label for="inputason22">প্রাপ্ত কেন্দ্র</label>
-                  <h6 id="inputason22" style="float: right; margin-right: -68px"> ৭৪৬৪৫৬ </h6>
+                  <h6
+                    id="inputason22"
+                    style="float: right; margin-right: -68px"
+                  >
+                    {{ results.published_center }}
+                  </h6>
                 </div>
                 <div class="row3">
                   <label for="inputason23">অপ্রকাশিত কেন্দ্র</label>
-                  <h6 id="inputason23" style="float: right; margin-right: -70px"> ৭৪৬৪৫৬ </h6>
+                  <h6
+                    id="inputason23"
+                    style="float: right; margin-right: -70px"
+                  >
+                    {{ results.unpublished_center }}
+                  </h6>
                 </div>
                 <div class="row3">
                   <label for="inputason24">স্থাপিত কেন্দ্র</label>
-                  <h6 id="inputason24" style="float: right; margin-right: -71px"> ৭৪৬৪৫৬ </h6>
+                  <h6
+                    id="inputason24"
+                    style="float: right; margin-right: -71px"
+                  >
+                    {{ results.postponed_center }}
+                  </h6>
                 </div>
               </div>
-
             </div>
           </div>
           <div class="col-md-8">
             <!--pie chart-->
-            <apexchart type="pie" width="380" :options="chartOptions" :series="series"></apexchart>
-
+            <apexchart
+              type="pie"
+              width="380"
+              :options="chartOptions"
+              :series="series"
+            ></apexchart>
           </div>
         </div>
         <div style="padding-top: 5rem">
-          <apexchart type="bar" height="350" :options="chartOptions2" :series="series2"></apexchart>
-
-
+          <apexchart
+            type="bar"
+            height="350"
+            :options="chartOptions2"
+            :series="series2"
+          ></apexchart>
         </div>
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
 import VueApexCharts from "vue3-apexcharts";
 import HeaderPart from "@/partials/HeaderPart";
-
+import axios from "axios";
 export default {
-
-
   data: function () {
     return {
-      series: [44, 55, 13],
-      colors: [ // this array contains different color code for each data
+      series: [],
+      colors: [
+        // this array contains different color code for each data
         "#33b2df",
         "#546E7A",
         "#d4526e",
@@ -525,77 +652,108 @@ export default {
         "#f9a3a4",
         "#90ee7e",
         "#f48024",
-        "#69d2e7"
+        "#69d2e7",
       ],
       chartOptions: {
         chart: {
           width: 380,
-          type: 'pie',
+          type: "pie",
         },
         legend: {
-          position: 'bottom'
+          position: "bottom",
         },
-        labels: ['্রকাশিত কেন্দ্র', 'স্থাপিত কেন্দ্র', 'অপ্রকাশিত কেন্দ্র'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 350
+        labels: ["প্রকাশিত কেন্দ্র", "স্থাপিত কেন্দ্র", "অপ্রকাশিত কেন্দ্র"],
+        responsive: [
+          {
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 350,
+              },
+              legend: {
+                position: "bottom",
+              },
             },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
+          },
+        ],
       },
-      series2: [{
-        data: [2.3, 3.1, 4.0, 10.1]
-      }],
+      series2: [
+        {
+          data: [2.3, 3.1, 4.0, 10.1],
+        },
+      ],
       chartOptions2: {
         chart: {
           height: 350,
-          type: 'bar',
+          type: "bar",
           events: {
-// click: function(chart, w, e) {
-//   // console.log(chart, w, e)
-// }
-          }
+            // click: function(chart, w, e) {
+            //   // console.log(chart, w, e)
+            // }
+          },
         },
         colors: this.colors,
         plotOptions: {
           bar: {
-            columnWidth: '45%',
+            columnWidth: "45%",
             distributed: true,
-          }
+          },
         },
         dataLabels: {
-          enabled: false
+          enabled: false,
         },
         legend: {
-          show: true
+          show: true,
         },
         xaxis: {
-          categories: ['আওয়ামীলীগ', 'বিএনপি', 'জাতীয় পার্টি', 'অন্যান্য'],
+          categories: ["আওয়ামীলীগ", "বিএনপি", "জাতীয় পার্টি", "অন্যান্য"],
           labels: {
             style: {
               colors: this.colors,
-              fontSize: '12px'
-            }
-          }
-        }
+              fontSize: "12px",
+            },
+          },
+        },
       },
-
-    }
+      results: [],
+      test: {
+        new: 20,
+        // code: 0,
+      },
+    };
   },
   name: "DistrictResultPage",
   components: {
     apexchart: VueApexCharts,
     HeaderPart,
-
-
-
   },
-  mounted() {
-  }
-}
+
+  mounted() {},
+  methods: {
+    async allResults() {
+      let users = JSON.parse(localStorage.getItem("users"));
+      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      let district = this.$route.query.district;
+      await axios
+        .get(
+          process.env.VUE_APP_BASE_URL +
+            `/api/v1/pera/public/district-result/${district}/`
+        )
+        .then(
+          ({ data }) => (
+            (this.results = data),
+            (this.series = [
+              data.percentage_of_published_constitution,
+              data.percentage_of_postponed_constitution,
+              data.percentage_of_unpublished_constitution,
+            ])
+          )
+        )
+        .catch();
+    },
+  },
+  created() {
+    this.allResults();
+  },
+};
 </script>
