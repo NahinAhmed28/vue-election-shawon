@@ -77,7 +77,6 @@ export default {
   },
   mounted() {
     sideb()
-    console.log(process.env.VUE)
   }
 }
 </script>

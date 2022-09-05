@@ -304,8 +304,8 @@ export default {
   mounted() {},
   methods: {
     async allResults() {
-      let users = JSON.parse(localStorage.getItem("users"));
-      axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
+      // let users = JSON.parse(localStorage.getItem("users"));
+      // axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       let division = this.$route.query.division;
       await axios
           .get(

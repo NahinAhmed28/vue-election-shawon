@@ -4,6 +4,7 @@ import DistrictPage from "@/pages/DistrictPage";
 import DivisionResultPage from "@/pages/result/DivisionResultPage";
 import DistrictResultPage from "@/pages/result/DistrictResultPage";
 import ConstituencyResultPage from "@/pages/result/ConstituencyResultPage";
+import CenterResultPage from "@/pages/result/CenterResultPage";
 import TablePage from "@/pages/TablePage";
 import LoginPage from "@/pages/auth/LoginPage";
 import DashboardStaffPage from "@/pages/DashboardStaff";
@@ -51,6 +52,11 @@ const routes = [
         path: '/constituency-result',
         name: 'ConstituencyResult',
         component: ConstituencyResultPage
+    },
+    {
+        path: '/center-result',
+        name: 'CenterResult',
+        component: CenterResultPage
     },
     {
         path: '/center-result',
