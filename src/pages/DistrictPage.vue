@@ -63,7 +63,7 @@ import DistrictMap from "@/components/DistrictMap";
 import sideb from "@/assets/main";
 import FilterArea from "@/components/FilterArea";
 export default {
-  name: 'LandingPage',
+  name: 'DistrictPage',
   components: {
     HeaderPart,
     WrapperPart,

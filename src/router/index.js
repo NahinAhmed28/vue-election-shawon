@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from "@/pages/LandingPage";
 import DistrictPage from "@/pages/DistrictPage";
+import ConstituencyPage from "@/pages/ConstituencyPage";
 import DivisionResultPage from "@/pages/result/DivisionResultPage";
 import DistrictResultPage from "@/pages/result/DistrictResultPage";
 import ConstituencyResultPage from "@/pages/result/ConstituencyResultPage";
@@ -33,11 +34,13 @@ const routes = [
         name: 'District',
         component: DistrictPage
     },
+
     {
         path: '/seat',
-        // name: 'DashboardAgentPage',
-        // component: DashboardAgentPage
+        name: 'Constituency',
+        component: ConstituencyPage
     },
+
     {
         path: '/division-result',
         name: 'DivisionResult',

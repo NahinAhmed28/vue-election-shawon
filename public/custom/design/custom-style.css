@@ -283,7 +283,9 @@
 
 /** Map css **/
 
-
+#layer_S{
+    max-width: 720px;
+}
 #Layer_Z{
 
     width: 720px !important;
