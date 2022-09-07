@@ -132,7 +132,7 @@
       <div class="card-body">
         <ul
           class="nav nav-pills nav-stacked"
-          style="height: 150px; overflow-y: scroll"
+          style="height: 250px; overflow-y: scroll"
         >
           <li class="nav-item">
             <a class="nav-link" href="result_detail.html"

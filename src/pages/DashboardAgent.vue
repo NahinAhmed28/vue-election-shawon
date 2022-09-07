@@ -40,31 +40,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-12">
-                        <label class="form-label">আসন</label>
-                        <div class="input-group">
-                          <button
-                            class="btn btn-outline-secondary"
-                            type="button"
-                          >
-                            <i class="bx bx-search"></i>
-                          </button>
-                          <select
-                            class="form-select single-select"
-                            id="inputGroupSelect04"
-                            v-model="form.constituency"
-                          >
-                            <option selected>বাছাই করুন</option>
-                            <option
-                              :value="constituency.id"
-                              v-for="constituency in constituencies"
-                              :key="constituency.id"
-                            >
-                              {{ constituency.constituency }}
-                            </option>
-                          </select>
-                        </div>
-                      </div>
+
                       <div class="col-12">
                         <label class="form-label">কেন্দ্র</label>
                         <div class="input-group">

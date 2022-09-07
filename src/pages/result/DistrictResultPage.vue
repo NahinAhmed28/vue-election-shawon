@@ -23,42 +23,66 @@
                 <span class="glyphicon glyphicon-info-sign"></span> আসনের
                 হালনাগাদ
               </h5>
-              <div style="padding: 15px">
-                <div class="row1">
+              <div style="padding: 10px">
+                <div class="row">
+                  <div class="col-md-6">
                   <label for="ason1">মোট ভোটার</label>
+                  </div>
+                  <div class="col-md-6">
                   <h6 id="ason1" style="float: right">
                     {{ results.total_voter }}
                   </h6>
+                  </div>
                 </div>
-                <div class="row2">
+                <div class="row">
+                  <div class="col-md-6">
                   <label for="ason2">প্রদানক্রিত ভোট</label>
+                  </div>
+                  <div class="col-md-6">
                   <h6 id="ason2" style="float: right; margin-right: -62px">
                     {{ results.valid_vote }}
                   </h6>
+                  </div>
                 </div>
-                <div class="row3">
+                <div class="row">
+                  <div class="col-md-6">
                   <label for="ason3" style="">আওয়ামীলীগ</label>
+                  </div>
+                    <div class="col-md-6">
                   <h6 id="ason3" style="float: right; margin-right: -54px">
                     ৭৪৫৬
                   </h6>
+                    </div>
                 </div>
-                <div class="row4">
+                <div class="row">
+                  <div class="col-md-6">
                   <label for="ason4" style="">বিএনপি</label>
+                  </div>
+                    <div class="col-md-6">
                   <h6 id="ason4" style="float: right; margin-right: 16px">
                     ৭৪৫৬
                   </h6>
+                    </div>
                 </div>
-                <div class="row5">
+                <div class="row">
+                  <div class="col-md-6">
                   <label for="ason5" style="">জাতীয় পার্টি</label>
+                  </div>
+                  <div class="col-md-6">
                   <h6 id="ason5" style="float: right; margin-right: -50px">
                     ৫৪৫৬
                   </h6>
+                  </div>
                 </div>
-                <div class="row6">
+                <div class="row">
+                  <div class="col-md-6">
                   <label for="ason6">অন্যান্য</label>
+                  </div>
+                  <div class="col-md-6">
                   <h6 id="ason6" style="float: right; margin-right: 12px">
                     ৬৪৫৬
                   </h6>
+                  </div>
                 </div>
               </div>
             </div>

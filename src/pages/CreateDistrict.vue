@@ -17,7 +17,7 @@
                     <hr />
                     <form class="row g-3" @submit.prevent="storeDistrict">
                       <div class="col-12">
-                        <label class="form-label">আসন</label>
+                        <label class="form-label">বিভাগ</label>
                         <div class="input-group">
                           <button
                               class="btn btn-outline-secondary"

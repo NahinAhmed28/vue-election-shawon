@@ -4,7 +4,7 @@ import DistrictPage from "@/pages/DistrictPage";
 import ConstituencyPage from "@/pages/ConstituencyPage";
 import DivisionResultPage from "@/pages/result/DivisionResultPage";
 import DistrictResultPage from "@/pages/result/DistrictResultPage";
-import ConstituencyResultPage from "@/pages/result/ConstituencyResultPage";
+import ConstituencyResultPage from "@/pages/result/ConstituencyPage";
 import CenterResultPage from "@/pages/result/CenterResultPage";
 import TablePage from "@/pages/TablePage";
 import LoginPage from "@/pages/auth/LoginPage";
@@ -16,6 +16,7 @@ import CreateConstituencyPage from "@/pages/CreateConstituency";
 import CreateCenterPage from "@/pages/CreateCenter";
 import CreatePoliticalPartyPage from "@/pages/CreatePoliticalParty";
 import CreatePoliticalCandidatePage from "@/pages/CreatePoliticalCandidate";
+import CreateVoteResultPage from "@/pages/CreateVoteResult";
 
 
 const routes = [
@@ -99,6 +100,10 @@ const routes = [
         path: '/create-political-candidate',
         name: 'CreatePoliticalCandidate',
         component: CreatePoliticalCandidatePage
+    },{
+        path: '/create-vote-result',
+        name: 'CreateVoteResult',
+        component: CreateVoteResultPage
     }
 ];
 const router = createRouter({

@@ -92,9 +92,9 @@
             </RouterLink>
           </li>
           <li>
-            <a href="#"
-              ><ion-icon name="ellipse-outline"></ion-icon>ভোটের ফলাফল</a
-            >
+            <RouterLink to="/create-vote-result">
+              <ion-icon name="ellipse-outline"></ion-icon>ভোটের ফলাফল
+            </RouterLink>
           </li>
         </ul>
       </li>
