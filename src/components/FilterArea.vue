@@ -363,7 +363,9 @@ export default {
       let district = document.getElementById("district").value;
       let constituency = document.getElementById("constituency").value;
       let center = document.getElementById("center").value;
-      this.$router.push(`/center-result/?division=${division}&district=${district}&constituency=${constituency}&center=${center}`)
+      this.$router.push(
+        `/center-result/?division=${division}&district=${district}&constituency=${constituency}&center=${center}`
+      );
     },
     clickDiv(event) {
       this.constituencies = [];
@@ -383,7 +385,7 @@ export default {
     async allDivisions() {
       await axios
         .get(process.env.VUE_APP_BASE_URL + "/api/v1/pera/public/division/")
-        .then(({ data }) => (this.divisions = data))
+        .then(({ data }) => (this.divisions = data.data))
         .catch();
     },
     async allDistricts(division) {
@@ -393,7 +395,7 @@ export default {
             "/api/v1/pera/public/district/?division=" +
             division
         )
-        .then(({ data }) => (this.districts = data))
+        .then(({ data }) => (this.districts = data.data))
         .catch();
     },
     async allConstituency(district) {
@@ -403,7 +405,7 @@ export default {
             "/api/v1/pera/public/constituency/?district=" +
             district
         )
-        .then(({ data }) => (this.constituencies = data))
+        .then(({ data }) => (this.constituencies = data.data))
         .catch();
     },
     async allCenters(constituency) {
@@ -413,7 +415,7 @@ export default {
             "/api/v1/pera/public/center/?constituency=" +
             constituency
         )
-        .then(({ data }) => (this.centers = data))
+        .then(({ data }) => (this.centers = data.data))
         .catch();
     },
   },

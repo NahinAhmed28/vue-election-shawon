@@ -212,7 +212,7 @@ export default {
         )
         .then(
           ({ data }) => (
-            (this.results = data.results[0])
+            (this.results = data.data.results[0])
           //   (
              
           //     (data.results[0].candidate).forEach(function(candidatex) {
