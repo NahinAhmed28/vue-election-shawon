@@ -264,6 +264,7 @@ export default {
         disqualify_vote: 0,
         casted_vote: 0,
         vote_percentage: 0,
+        status: 'published',
         candidates: [
           {
             candidate: null,
