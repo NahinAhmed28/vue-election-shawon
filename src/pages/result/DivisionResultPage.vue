@@ -314,11 +314,11 @@ export default {
           )
           .then(
               ({ data }) => (
-                  (this.results = data),
+                  (this.results =  data.data),
                       (this.series = [
-                        data.percentage_of_published_constitution,
-                        data.percentage_of_postponed_constitution,
-                        data.percentage_of_unpublished_constitution,
+                         data.data.percentage_of_published_constitution,
+                         data.data.percentage_of_postponed_constitution,
+                         data.data.percentage_of_unpublished_constitution,
                       ])
               )
           )

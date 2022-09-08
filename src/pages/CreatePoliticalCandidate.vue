@@ -280,7 +280,7 @@ export default {
               process.env.VUE_APP_BASE_URL +
               "/api/v1/pera/political/candidate/"
           )
-          .then(({ data }) => (this.candidates = data.results))
+          .then(({ data }) => (this.candidates = data.data.results))
           .catch();
     },
     async storeCandidate() {
@@ -309,7 +309,7 @@ export default {
           process.env.VUE_APP_BASE_URL +
             "/api/v1/pera/region-admin/constituency/"
         )
-        .then(({ data }) => (this.constituencies = data.results))
+        .then(({ data }) => (this.constituencies = data.data.results))
         .catch();
     },
     async allParties() {
@@ -317,7 +317,7 @@ export default {
       axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       await axios
         .get(process.env.VUE_APP_BASE_URL + "/api/v1/pera/political/party/")
-        .then(({ data }) => (this.parties = data.results))
+        .then(({ data }) => (this.parties = data.data.results))
         .catch();
     },
   },

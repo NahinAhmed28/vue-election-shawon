@@ -200,7 +200,7 @@ export default {
           process.env.VUE_APP_BASE_URL +
             "/api/v1/pera/region-admin/division/?lim=100"
         )
-        .then(({ data }) => (this.divisions = data.results))
+        .then(({ data }) => (this.divisions = data.data.results))
         .catch();
     },
     async storeDivision() {

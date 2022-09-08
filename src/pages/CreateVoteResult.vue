@@ -229,7 +229,7 @@ export default {
               process.env.VUE_APP_BASE_URL +
               "/api/v1/pera/region-admin/constituency/"
           )
-          .then(({ data }) => (this.constituencies = data.results))
+          .then(({ data }) => (this.constituencies = data.data.results))
           .catch();
     },
     async allCenters() {
@@ -237,7 +237,7 @@ export default {
       axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       await axios
           .get(process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/center/")
-          .then(({ data }) => (this.centers = data.results))
+          .then(({ data }) => (this.centers = data.data.results))
           .catch();
     },
     async storeCenter() {

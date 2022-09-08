@@ -236,7 +236,7 @@ export default {
         .get(
           process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/district/"
         )
-        .then(({ data }) => (this.districts = data.results))
+        .then(({ data }) => (this.districts = data.data.results))
         .catch();
     },
     async allConstituency() {
@@ -247,7 +247,7 @@ export default {
           process.env.VUE_APP_BASE_URL +
             "/api/v1/pera/region-admin/constituency/"
         )
-        .then(({ data }) => (this.constituencies = data.results))
+        .then(({ data }) => (this.constituencies = data.data.results))
         .catch();
     },
     async storeConstituency() {

@@ -25,9 +25,9 @@ const authModule = {
                 password: credentials.password
                 })
                 .then(res => {
-                    context.commit('setUser', res.data);
-                    window.localStorage.setItem("users", JSON.stringify(res.data));
-                    return JSON.stringify(res.data);
+                    context.commit('setUser', res.data.data);
+                    window.localStorage.setItem("users", JSON.stringify(res.data.data));
+                    return JSON.stringify(res.data.data);
                 })
                 .catch(error => {
                     console.error(error);

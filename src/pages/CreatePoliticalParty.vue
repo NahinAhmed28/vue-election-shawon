@@ -267,7 +267,7 @@ export default {
       axios.defaults.headers.common["Authorization"] = "JWT " + users.token;
       await axios
         .get(process.env.VUE_APP_BASE_URL + "/api/v1/pera/political/party/")
-        .then(({ data }) => (this.parties = data.results))
+        .then(({ data }) => (this.parties = data.data.results))
         .catch();
     },
     async storeParty() {

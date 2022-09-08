@@ -229,7 +229,7 @@ export default {
           process.env.VUE_APP_BASE_URL +
             "/api/v1/pera/region-admin/district/?lim=100"
         )
-        .then(({ data }) => (this.districts = data.results))
+        .then(({ data }) => (this.districts = data.data.results))
         .catch();
     },
     async allDivisions() {
@@ -239,7 +239,7 @@ export default {
         .get(
           process.env.VUE_APP_BASE_URL + "/api/v1/pera/region-admin/division/"
         )
-        .then(({ data }) => (this.divisions = data.results))
+        .then(({ data }) => (this.divisions = data.data.results))
         .catch();
     },
     async storeDistrict() {
