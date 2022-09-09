@@ -9,112 +9,67 @@
           বিভাগঃ {{ results.division }} , জেলাঃ {{ results.district }} , আসনঃ
           {{ results.constituency }} ,কেন্দ্রঃ {{ results.center }}
         </h5>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card" style="height: 230px">
-              <h5
-                class="card-title"
-                style="
-                  background: #5f57c9;
-                  color: white;
-                  margin-top: 0px;
-                  padding: 10px;
-                  font-weight: bold;
-                "
-              >
-                <span class="glyphicon glyphicon-info-sign"></span> আসনের
-                হালনাগাদ
-              </h5>
-              <div style="padding: 15px">
-                <div class="row1">
-                  <label for="ason1">মোট ভোটার</label>
-                  <h6 id="ason1" style="float: right">
-                    {{ results.total_vote }}
-                  </h6>
-                </div>
-                <div class="row2">
-                  <label for="ason2">মোট বৈধ ভোট</label>
-                  <h6 id="ason2" style="float: right">
-                    {{ results.valid_vote }}
-                  </h6>
-                </div>
-                <div class="row3">
-                  <label for="ason3">প্রদানক্রিত ভোট</label>
-                  <h6 id="ason3" style="float: right; margin-right: -62px">
-                    {{ results.casted_vote }}
-                  </h6>
-                </div>
-                <div class="row4">
-                  <label for="ason4">বাতিলকৃত ভোট</label>
-                  <h6 id="ason4" style="float: right; margin-right: -62px">
-                    {{ results.disqualify_vote }}
-                  </h6>
-                </div>
-                <div class="row5">
-                  <label for="ason5">শতকরা হার</label>
-                  <h6 id="ason5" style="float: right; margin-right: -62px">
-                    {{ results.vote_percentage }} %
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div style="padding-top: 2rem">
+          <hr />
+          <h4>পঞ্চগড় ১ আসনের ৮৪ নং কেন্দ্রের ফলাফল</h4>
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="example2" class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                  <td>কেন্দ্র</td>
+                  <td>শেখ মোঃ হাবিবুর রহমান<br />নৌকা</td>
+                  <td>আল রাশেদ<br />ধানের শিষ</td>
+                  <td>মোঃ সুমন রানা<br />লাঙ্গল</td>
+                  <td>ব্যারিস্টার নওশাদ<br />নৌকা</td>
+                  <td>মোঃ আব্দুল্লাহ<br />ধানের শিষ</td>
+                  <td>মোঃ মাজহারুল<br />লাঙ্গল</td>
+                  <td>মোঃ আবু সালেক<br />ধানের শিষ</td>
+                  <td>মোট ভোটার</td>
+                  <td>মোট বৈধ</td>
+                  <td>মোট বাতিল</td>
+                  <td>প্রদত্ত ভোট</td>
+                  <td>শতকরা হার</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>সরকারি প্রাথমিক বিদ্যালয়</td>
+                  <td>১৯৫৭</td>
+                  <td>৬৯৩</td>
+                  <td>০২</td>
+                  <td>১৮১</td>
+                  <td>০৫</td>
+                  <td>২৫০</td>
+                  <td>০৪</td>
+                  <td>৩১৮০</td>
+                  <td> {{ results.valid_vote }}</td>
+                  <td> {{ results.disqualify_vote }}</td>
+                  <td>{{ results.casted_vote }}</td>
+                  <td> {{ results.vote_percentage }}%</td>
+                </tr>
 
-          <div class="col-md-6">
-            <div class="card" style="height: 230px">
-              <h5
-                class="card-title"
-                style="
-                  background: #5f57c9;
-                  color: white;
-                  margin-top: 0px;
-                  padding: 10px;
-                  font-weight: bold;
-                "
-              >
-                <span class="glyphicon glyphicon-info-sign"></span> দলভিত্তিক
-                প্রার্থীর অবস্থান
-              </h5>
-              <div style="padding: 20px">
-                <div
-                  class="row1"
-                  v-for="candidate in results.candidate"
-                  :key="candidate.id"
-                >
-                  <label for="inputason11"> {{ candidate.candidate }}</label>
-                  <h6 id="inputason11" style="float: right; margin-right: 5px">
-                    {{ candidate.vote }}
-                  </h6>
-                </div>
-              </div>
+                </tbody>
+              </table>
             </div>
           </div>
-          <!-- <div class="col-md-4"> -->
-          <!--                <h4 style="text-align: center;font-weight: bold">আসন/<br>কেন্দ্র ভিত্তিক ম্যাপ</h4>-->
-          <!--svg map-->
-          <!-- </div> -->
         </div>
-        <div style="padding-top: 5rem">
-          <apexchart
-            type="bar"
-            height="350"
-            :options="chartOptions2"
-            :series="series2"
-          ></apexchart>
         </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VueApexCharts from "vue3-apexcharts";
+// import VueApexCharts from "vue3-apexcharts";
 import HeaderPart from "@/partials/HeaderPart";
 import axios from "axios";
 export default {
   data: function () {
     return {
-      // series: [],
+      series: [],
       colors: [
         // this array contains different color code for each data
         "#33b2df",
@@ -194,7 +149,7 @@ export default {
   },
   name: "CenterResult",
   components: {
-    apexchart: VueApexCharts,
+    // apexchart: VueApexCharts,
     HeaderPart,
   },
 
@@ -211,22 +166,16 @@ export default {
             `/api/v1/pera/public/center-result/?division=${division}&district=${district}&constituency=${constituency}&center=${center}`
         )
         .then(
-          ({ data }) => (
-            (this.results = data.data.results[0])
-          //   (
-             
-          //     (data.results[0].candidate).forEach(function(candidatex) {
-          //         console.log(number);
-          //     }),
-              
-          //     this.series = [
-          //     data.percentage_of_published_constitution,
-          //     data.percentage_of_postponed_constitution,
-          //     data.percentage_of_unpublished_constitution,
-          //   ])
-          // )
-        ))
-        .catch();
+            ({ data }) => (
+                (this.results =  data.data),
+                    (this.series = [
+                      data.data.percentage_of_published_constitution,
+                      data.data.percentage_of_postponed_constitution,
+                      data.data.percentage_of_unpublished_constitution,
+                    ])
+            )
+        )
+          .catch();
     },
   },
   created() {
