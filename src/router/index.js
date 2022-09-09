@@ -63,7 +63,7 @@ const routes = [
         component: CenterResultPage
     },
     {
-        path: '/center-result',
+        path: '/center-result2',
         name: 'table',
         component: TablePage
     },
