@@ -26,7 +26,7 @@
         <form action="result_detail.html">
           <div class="form-group row">
             <label for="input41" class="col-sm-3 col-form-label">বিভাগ</label>
-            <div class="col-sm-9">
+            <div class="col-sm-9 form-padding-bottom">
               <select
                 class="form-control form-control"
                 id="division"
@@ -45,7 +45,7 @@
           </div>
           <div class="form-group row">
             <label for="input42" class="col-sm-3 col-form-label">জেলা</label>
-            <div class="col-sm-9">
+            <div class="col-sm-9 form-padding-bottom">
               <select
                 class="form-control form-control"
                 id="district"
@@ -64,7 +64,7 @@
           </div>
           <div class="form-group row">
             <label for="input43" class="col-sm-3 col-form-label">আসন</label>
-            <div class="col-sm-9">
+            <div class="col-sm-9 form-padding-bottom">
               <select
                 class="form-control form-control"
                 id="constituency"
@@ -85,7 +85,7 @@
             <label for="input44" class="col-sm-3 col-form-label"
               >ভোট কেন্দ্র</label
             >
-            <div class="col-sm-9">
+            <div class="col-sm-9 form-padding-bottom">
               <select class="form-control form-control" id="center">
                 <option value="0">বাছাই করুন</option>
                 <option

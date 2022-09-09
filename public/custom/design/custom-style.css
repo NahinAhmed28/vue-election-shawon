@@ -590,3 +590,6 @@ tr {
     font-weight: bold;
     border-radius: 1rem
 }
+.form-padding-bottom{
+    padding-bottom: 10px;
+}
