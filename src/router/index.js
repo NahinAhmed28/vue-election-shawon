@@ -17,6 +17,7 @@ import CreateCenterPage from "@/pages/CreateCenter";
 import CreatePoliticalPartyPage from "@/pages/CreatePoliticalParty";
 import CreatePoliticalCandidatePage from "@/pages/CreatePoliticalCandidate";
 import CreateVoteResultPage from "@/pages/CreateVoteResult";
+import TableTestPage from "@/pages/TableTestPage";
 
 
 const routes = [
@@ -104,6 +105,10 @@ const routes = [
         path: '/create-vote-result',
         name: 'CreateVoteResult',
         component: CreateVoteResultPage
+    },{
+        path: '/table-test-page',
+        name: 'TableTestPage',
+        component: TableTestPage
     }
 ];
 const router = createRouter({
