@@ -115,7 +115,7 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table
-                    id="division_list"
+                    id="example2"
                     class="table table-striped table-bordered"
                 >
                   <thead>
@@ -209,7 +209,7 @@
 
 
 <script>
-// import $ from "jquery";
+import $ from "jquery";
 // import "jquery/dist/jquery.min.js";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "datatables.net-dt/js/dataTables.dataTables";
@@ -225,7 +225,7 @@ import axios from "axios";
 export default {
   name: "CreatePoliticalCandidate",
   mounted() {
-    // $("#example2").DataTable();
+    $("#example2").DataTable();
     sideb();
   },
   data() {

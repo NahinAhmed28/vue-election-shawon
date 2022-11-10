@@ -169,10 +169,11 @@
 
 
 <script>
-import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "datatables.net-dt/js/dataTables.dataTables";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from "jquery";
+// import "jquery/dist/jquery.min.js";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "datatables.net-dt/js/dataTables.dataTables";
+// import "datatables.net-dt/css/jquery.dataTables.min.css";
 import HeaderPart from "@/partials/HeaderPart";
 import WrapperPart from "@/partials/WrapperPart";
 import SidebarPart from "@/partials/SidebarPart";
@@ -183,7 +184,7 @@ import axios from "axios";
 export default {
   name: "CreateCenter",
   mounted() {
-    // $("#example2").DataTable();
+    $("#example2").DataTable();
     sideb();
   },
   data() {
