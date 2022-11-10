@@ -96,11 +96,11 @@
               <ion-icon name="ellipse-outline"></ion-icon>ভোটের ফলাফল
             </RouterLink>
           </li>
-<!--          <li>-->
-<!--            <RouterLink to="/table-test-page">-->
-<!--              <ion-icon name="ellipse-outline"></ion-icon>test table-->
-<!--            </RouterLink>-->
-<!--          </li>-->
+          <li>
+            <RouterLink to="/table-test-page">
+              <ion-icon name="ellipse-outline"></ion-icon>test table
+            </RouterLink>
+          </li>
         </ul>
       </li>
     </ul>
