@@ -1,24 +1,26 @@
-# election
+# Vue Election Shawon
 
-## Project setup
-```
-yarn install
+Vue Election Shawon is a Vue-based election application project. It focuses on building election-related screens or workflows in a modern front-end stack.
+
+## Project Details
+
+- Repository: `NahinAhmed28/vue-election-shawon`
+- Default branch: `master`
+- Visibility: public
+- Project type: Vue front-end application
+- Main focus: election UI and data presentation
+
+## Getting Started
+
+```bash
+git clone https://github.com/NahinAhmed28/vue-election-shawon.git
+cd vue-election-shawon
+npm install
+npm run dev
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Check `package.json` for the exact development, build, and lint scripts.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Notes
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Add route descriptions, API configuration, screenshots, and deployment steps when available.
